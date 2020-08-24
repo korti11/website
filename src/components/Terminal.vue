@@ -1,5 +1,11 @@
 <template>
   <b-container class="terminal-output" fluid>
+      <terminal-command command="page ."/>
+      <b-row>
+          <b-col>
+              <h1>Home</h1>
+          </b-col>
+      </b-row>
       <terminal-command command="cat user.js"/>
       <terminal-object-export :obj="user"/>
       <terminal-command command="cat social.js"/>
