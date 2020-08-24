@@ -22,7 +22,11 @@ export default {
                 name: 'Lucas',
                 nickname: 'Korti',
                 age: '23',
-                country: 'Austria 🇦🇹'
+                pronouns: '\'he\' | \'him\'',
+                country: 'Austria 🇦🇹',
+                code: [ 'Java', 'Kotlin', 'JavaScript', 'SQL' ],
+                tools: [ 'Node', 'Angular', 'Vue in the beginning', 'Docker' ],
+                languages: [ 'German', 'English' ]
             },
             social: {
                 'GitHub': 'https://github.com/korti11',
