@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <terminal-header></terminal-header>
-    <terminal class="content"></terminal>
+    <router-view class="content"/>
   </div>
 </template>
 
 <script>
 import TerminalHeader from './components/TerminalHeader'
-import Terminal from './components/Terminal'
 
 export default {
   name: 'App',
   components: {
-    TerminalHeader,
-    Terminal
+    TerminalHeader
   }
 }
 </script>
