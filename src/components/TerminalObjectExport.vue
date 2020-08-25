@@ -5,7 +5,7 @@
         </b-col>
         <b-col class="property" offset="1" cols="11" v-for="(value, name, index) in jsObj" :key="name">
             <terminal-array v-if="value.type === 'Array'" :property="name" :value="value.value"/>
-            <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value" :message="value.message ? value.message : value.value" :external="value.external !== undifiend ? value.external : true"/>
+            <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value" :message="value.message ? value.message : value.value" :external="value.external !== undefined ? value.external : true"/>
             <terminal-multi-text v-else-if="value.type === 'MultiText'" :property="name" :value="value.value"/>
             <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :value="value.value"/>
             <terminal-text v-else :property="name" :value="value.value" />

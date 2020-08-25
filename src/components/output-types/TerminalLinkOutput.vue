@@ -1,6 +1,6 @@
 <template>
     <span>{{property}}:
-        <a v-if="external" class="value" :href="link" target="_blank">'{{link}}'</a>
+        <a v-if="external" class="value" :href="link" target="_blank" rel="noopener noreferrer">'{{link}}'</a>
         <a v-else :href="link" class="value">'{{message}}'</a>
     </span>
 </template>
