@@ -21,11 +21,10 @@
 <script>
 export default {
     props: ['image', 'alt'],
-    data: function() {
-        const index = this.image.lastIndexOf('/');
-        const imageName = this.image.substring(index + 1);
-        return {
-            imageName
+    computed: {
+        imageName: function() {
+            const index = this.image.lastIndexOf('/');
+            return this.image.substring(index + 1);
         }
     }
 }
