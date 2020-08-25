@@ -2,7 +2,7 @@
     <div>
         <b-navbar class="header" sticky>
             <b-container fluid>
-                <b-row class="text-center">
+                <b-row class="text-center nav-row">
                     <b-col cols="1">
                         <b-button-group>
                                 <b-button class="round" size="sm" variant="danger"><b-icon-x/></b-button>
@@ -42,7 +42,7 @@ export default {
         font-size: 0.6rem;
         margin-right: 0.7rem;
     }
-    .row {
+    .nav-row {
         width: 100%;
     }
 </style>

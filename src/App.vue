@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <terminal-header></terminal-header>
-    <terminal></terminal>
+    <terminal class="content"></terminal>
   </div>
 </template>
 
@@ -24,5 +24,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 1 auto;
 }
 </style>
