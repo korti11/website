@@ -14,7 +14,7 @@
                 <terminal-object-export :obj="social"/>
             </b-col>
             <b-col>
-                <terminal-image-preview :image="`${publicPath}images/profile_picture.jpg`" alt="Profile picture"/>
+                <terminal-image-preview :image="image" :alt="imageAlt" v-show="imagePreviewVisability"/>
             </b-col>
         </b-row>
     </b-container>
@@ -37,6 +37,7 @@ export default {
                 name: 'Lucas',
                 nickname: 'Korti',
                 age: '23',
+                profile: { type: 'Click', value: 'images/profile_picture.jpg', handler: this.profileClick },
                 pronouns: '\'he\' | \'him\'',
                 country: 'Austria 🇦🇹',
                 code: [ 'Java', 'Kotlin', 'JavaScript', 'SQL' ],
@@ -48,7 +49,17 @@ export default {
                 'Twitch': 'https://www.twitch.tv/korti11',
                 'Twitter': 'https://twitter.com/LKorti11'
             },
-            publicPath: process.env.BASE_URL
+            publicPath: process.env.BASE_URL,
+            imagePreviewVisability: false,
+            image: '',
+            imageAlt: ''
+        }
+    },
+    methods: {
+        profileClick: function() {
+            this.imagePreviewVisability = !this.imagePreviewVisability;
+            this.image = `${this.publicPath}images/profile_picture.jpg`;
+            this.imageAlt = 'Profile picture'
         }
     }
 }

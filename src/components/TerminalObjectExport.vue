@@ -7,6 +7,7 @@
             <terminal-array v-if="value.type === 'Array'" :property="name" :value="value.value"/>
             <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value"/>
             <terminal-multi-text v-else-if="value.type === 'MultiText'" :property="name" :value="value.value"/>
+            <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :value="value.value"/>
             <terminal-text v-else :property="name" :value="value.value" />
             <span v-if="index !== (keyLength - 1)">,</span>
         </b-col>
@@ -21,7 +22,8 @@
 import TerminalArray from './output-types/TerminalArrayOutput.vue';
 import TerminalLink from './output-types/TerminalLinkOutput.vue';
 import TerminalText from './output-types/TerminalTextOutput.vue';
-import TerminalMultiText from './output-types/TerminalMultiTextOutput';
+import TerminalMultiText from './output-types/TerminalMultiTextOutput.vue';
+import TerminalClick from './output-types/TerminalClickOutput.vue'
 
 export default {
     props: ['obj'],
@@ -29,15 +31,21 @@ export default {
         TerminalArray,
         TerminalLink,
         TerminalText,
-        TerminalMultiText
+        TerminalMultiText,
+        TerminalClick
     },
     data: function() {
         const jsObj = { };
         for(let name in this.obj) {
             const value = this.obj[name];
-            jsObj[name] = {
-                type: this.getType(value),
-                value
+            const type = this.getType(value);
+            if(type === 'Object') {
+                jsObj[name] = value;
+            } else {
+                jsObj[name] = {
+                    type: this.getType(value),
+                    value
+                }
             }
         }
         return {
@@ -52,6 +60,8 @@ export default {
 
             if(Array.isArray(value)) {
                 return 'Array';
+            } else if(value !== null && typeof value === 'object') {
+                return 'Object';
             } else if(urlRegex.test(value)) {
                 return 'Link';
             } else if (multiValueRegex.test(value)) {
