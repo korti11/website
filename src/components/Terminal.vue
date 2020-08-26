@@ -76,6 +76,7 @@ export default {
                     scrollingX: false
                 },
                 bar: {
+                    onlyShowBarOnScroll: false,
                     background: '#5e5e5e'
                 }
             }
