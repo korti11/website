@@ -31,5 +31,7 @@ export default {
     .content {
         margin-top: 40px;
         flex: 1 1 auto;
+
+        overflow: hidden;
     }
 </style>

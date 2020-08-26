@@ -1,17 +1,21 @@
 <template>
     <b-container fluid>
-        <b-row class="h-100">
-            <b-col class="terminal-output" cols="12" md="9">
-                <terminal-command command="page ."/>
-                <b-row>
-                    <b-col>
-                        <h1>Home</h1>
-                    </b-col>
-                </b-row>
-                <terminal-command command="cat user.js"/>
-                <terminal-object-export :obj="user"/>
-                <terminal-command command="cat social.js"/>
-                <terminal-object-export :obj="social"/>
+        <b-row>
+            <b-col class="terminal-output" cols="12" :md="imagePreviewVisability ? 9 : 12">
+                <vuescroll :ops="ops">
+                    <div id="output">
+                        <terminal-command command="page ."/>
+                        <b-row>
+                            <b-col>
+                                <h1>Home</h1>
+                            </b-col>
+                        </b-row>
+                        <terminal-command command="cat user.js"/>
+                        <terminal-object-export :obj="user"/>
+                        <terminal-command command="cat social.js"/>
+                        <terminal-object-export :obj="social"/>
+                    </div>
+                </vuescroll>
             </b-col>
             <b-col>
                 <terminal-image-preview :image="image" :alt="imageAlt" v-show="imagePreviewVisability"/>
@@ -24,12 +28,14 @@
 import TerminalCommand from './TerminalCommand.vue'
 import TerminalObjectExport from './TerminalObjectExport.vue'
 import TerminalImagePreview from './TerminalImagePreview.vue'
+import Vuescroll from 'vuescroll';
 
 export default {
     components: {
         TerminalCommand,
         TerminalObjectExport,
-        TerminalImagePreview
+        TerminalImagePreview,
+        Vuescroll
     },
     data: function() {
         return {
@@ -43,6 +49,10 @@ export default {
                         at: 'Johannes Kepler University',
                         since: 'October 2017',
                         what: 'Bachelor of Computer Since'
+                    },
+                    developer: {
+                        at: 'Dynatrace',
+                        since: 'October: 2020'
                     }
                 },
                 pronouns: '\'he\' | \'him\'',
@@ -60,7 +70,15 @@ export default {
             publicPath: process.env.BASE_URL,
             imagePreviewVisability: false,
             image: '',
-            imageAlt: ''
+            imageAlt: '',
+            ops: {
+                scrollPanel: {
+                    scrollingX: false
+                },
+                bar: {
+                    background: '#5e5e5e'
+                }
+            }
         }
     },
     methods: {
@@ -75,8 +93,16 @@ export default {
 
 <style>
     .terminal-output {
-        margin-top: 1rem;
         font-family: 'Roboto Mono';
         font-size: 1.2rem;
+
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+    .terminal-output #output {
+        margin-top: 0.7rem;
+        margin-bottom: 0.2rem;
     }
 </style>
