@@ -37,7 +37,18 @@ export default {
                 name: 'Lucas',
                 nickname: 'Korti',
                 age: '23',
-                profile: { type: 'Click', value: 'images/profile_picture.webp', handler: this.profileClick },
+                'profile-picture': { type: 'Click', value: 'images/profile_picture.webp', handler: this.profileClick },
+                occupations: {
+                    student: {
+                        at: 'Johannes Kepler University',
+                        since: 'October 2017',
+                        what: 'Bachelor of Computer Since'
+                    },
+                    developer: {
+                        at: 'Dynatrace',
+                        since: 'October 2020'
+                    }
+                },
                 pronouns: '\'he\' | \'him\'',
                 country: 'Austria 🇦🇹',
                 code: [ 'Java', 'Kotlin', 'JavaScript', 'SQL' ],
