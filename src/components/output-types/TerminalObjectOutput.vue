@@ -2,14 +2,33 @@
     <b-row>
         <b-col cols="12" v-if="property">{{ property }}: {</b-col>
         <b-col class="property" offset="1" cols="11" v-for="(value, name, index) in jsObj" :key="name">
-            <terminal-array v-if="value.type === 'Array'" :property="name" :value="value.value"/>
-            <terminal-object v-else-if="value.type === 'Object'" :property="name" :obj="value.value"/>
-            <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value" :message="value.message ? value.message : value.value" :external="value.external !== undefined ? value.external : true"/>
-            <terminal-multi-text v-else-if="value.type === 'MultiText'" :property="name" :value="value.value"/>
-            <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :value="value.value"/>
-            <terminal-text v-else :property="name" :value="value.value" />
-            <span v-if="value.type === 'Object'">}</span>
-            <span v-if="index !== (keyLength - 1)">,</span>
+            <b-row v-if="value.comment">
+                <b-col cols="6">
+                    <terminal-array v-if="value.type === 'Array'" :property="name" :value="value.value" :comment="value.comment"/>
+                    <terminal-object v-else-if="value.type === 'Object'" :property="name" :obj="value.value"/>
+                    <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value" :message="value.message ? value.message : value.value" :external="value.external !== undefined ? value.external : true" :commment="value.comment"/>
+                    <terminal-multi-text v-else-if="value.type === 'MultiText'" :property="name" :value="value.value" :comment="value.comment"/>
+                    <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :value="value.value" :comment="value.comment"/>
+                    <terminal-text v-else :property="name" :value="value.value" :comment="value.comment"/>
+                    <span v-if="value.type === 'Object'">}</span>
+                    <span v-if="index !== (keyLength - 1)">,</span>
+                </b-col>
+                <b-col>
+                    <span class="comment">// {{value.comment}}</span>
+                </b-col>
+            </b-row>
+            <b-row v-else>
+                <b-col>
+                    <terminal-array v-if="value.type === 'Array'" :property="name" :value="value.value" :comment="value.comment"/>
+                    <terminal-object v-else-if="value.type === 'Object'" :property="name" :obj="value.value"/>
+                    <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value" :message="value.message ? value.message : value.value" :external="value.external !== undefined ? value.external : true" :commment="value.comment"/>
+                    <terminal-multi-text v-else-if="value.type === 'MultiText'" :property="name" :value="value.value" :comment="value.comment"/>
+                    <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :value="value.value" :comment="value.comment"/>
+                    <terminal-text v-else :property="name" :value="value.value" :comment="value.comment"/>
+                    <span v-if="value.type === 'Object'">}</span>
+                    <span v-if="index !== (keyLength - 1)">,</span>
+                </b-col>
+            </b-row>
         </b-col>
     </b-row>
 </template>
@@ -80,5 +99,8 @@ export default {
     }
     .property.offset-1 {
         margin-left: 4.155555%;
+    }
+    .property .comment {
+        color: gray;
     }
 </style>

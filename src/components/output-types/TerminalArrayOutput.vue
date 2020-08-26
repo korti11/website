@@ -14,9 +14,3 @@ export default {
     props: ['property', 'value']
 }
 </script>
-
-<style>
-    .wrapper {
-        width: fit-content;
-    }
-</style>
