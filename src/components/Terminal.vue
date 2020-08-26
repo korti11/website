@@ -1,7 +1,7 @@
 <template>
     <b-container fluid>
         <b-row class="h-100">
-            <b-col class="terminal-output" cols=9>
+            <b-col class="terminal-output" cols="12" md="9">
                 <terminal-command command="page ."/>
                 <b-row>
                     <b-col>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-navbar class="header" sticky>
+        <b-navbar class="header" fixed="top">
             <b-container fluid>
                 <b-row class="text-center nav-row">
                     <b-col cols="1">
