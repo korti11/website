@@ -5,13 +5,13 @@
                 <b-row class="text-center nav-row">
                     <b-col cols="1">
                         <b-button-group>
-                                <b-button class="round" size="sm" variant="danger" v-on:click="close()"><b-icon-x/></b-button>
-                                <b-button class="round" size="sm" variant="warning"><b-icon-dash/></b-button>
-                                <b-button class="round" size="sm" variant="success" v-on:click="fullscreen()">
-                                    <b-icon-arrows-angle-expand v-show="!isFullscreen"/>
-                                    <b-icon-arrows-angle-contract v-show="isFullscreen"/>
-                                </b-button>
-                            </b-button-group> 
+                            <b-button class="round" size="sm" variant="danger" v-on:click="close()"><b-icon-x/></b-button>
+                            <b-button class="round" size="sm" variant="warning"><b-icon-dash/></b-button>
+                            <b-button class="round" size="sm" variant="success" v-on:click="fullscreen()">
+                                <b-icon-arrows-angle-expand v-show="!isFullscreen"/>
+                                <b-icon-arrows-angle-contract v-show="isFullscreen"/>
+                            </b-button>
+                        </b-button-group> 
                     </b-col>
                     <b-col cols=10>
                         bash - korti.io
@@ -23,7 +23,16 @@
 </template>
 
 <script>
+import { BNavbar, BIconX, BIconDash, BIconArrowsAngleExpand, BIconArrowsAngleContract } from 'bootstrap-vue'
+
 export default {
+    components: {
+        BNavbar,
+        BIconX,
+        BIconDash,
+        BIconArrowsAngleExpand,
+        BIconArrowsAngleContract
+    },
     data: function() {
         return {
             isFullscreen: document.fullscreenElement !== null

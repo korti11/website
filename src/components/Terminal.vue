@@ -37,7 +37,7 @@ export default {
                 name: 'Lucas',
                 nickname: 'Korti',
                 age: '23',
-                profile: { type: 'Click', value: 'images/profile_picture.jpg', handler: this.profileClick },
+                profile: { type: 'Click', value: 'images/profile_picture.webp', handler: this.profileClick },
                 pronouns: '\'he\' | \'him\'',
                 country: 'Austria 🇦🇹',
                 code: [ 'Java', 'Kotlin', 'JavaScript', 'SQL' ],
@@ -58,7 +58,7 @@ export default {
     methods: {
         profileClick: function() {
             this.imagePreviewVisability = !this.imagePreviewVisability;
-            this.image = `${this.publicPath}images/profile_picture.jpg`;
+            this.image = `${this.publicPath}images/profile_picture.webp`;
             this.imageAlt = 'Profile picture'
         }
     }
