@@ -52,7 +52,7 @@ export default {
                     },
                     developer: {
                         at: 'Dynatrace',
-                        since: 'October: 2020'
+                        since: 'October 2020'
                     }
                 },
                 pronouns: '\'he\' | \'him\'',
