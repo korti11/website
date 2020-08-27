@@ -28,7 +28,7 @@
 import TerminalCommand from './TerminalCommand.vue'
 import TerminalObjectExport from './TerminalObjectExport.vue'
 import TerminalImagePreview from './TerminalImagePreview.vue'
-import Vuescroll from 'vuescroll';
+import Vuescroll from 'vuescroll/dist/vuescroll-native';
 
 export default {
     components: {
