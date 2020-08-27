@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'node:lts' }
-    }
+    agent any
     stages {
         stage('Checkout') {
             steps {
@@ -10,6 +8,9 @@ pipeline {
         }
 
         stage('Build Vue project') {
+            agent {
+                docker { image 'node:lts' }
+            }
             steps {
                 sh 'npm ci'
                 sh 'npm run build'
@@ -31,7 +32,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'dist', fingerprint: true
+            archiveArtifacts artifacts: 'dist/*', fingerprint: true
         }
     }
 }
