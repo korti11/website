@@ -11,10 +11,11 @@ pipeline {
             agent {
                 docker { 
                     image 'node:lts'
-                    args '-v ./dist:./dist'
+                    args '-w="/home/node/app" -v "$PWD":/home/node/app'
                 }
             }
             steps {
+                sh 'pwd'
                 sh 'npm ci'
                 sh 'npm run build'
             }
