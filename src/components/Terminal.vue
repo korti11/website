@@ -1,7 +1,7 @@
 <template>
     <b-container fluid>
-        <b-row>
-            <b-col class="terminal-output" cols="12" :md="imagePreviewVisability ? 9 : 12">
+        <b-row class="h-100">
+            <b-col class="terminal-output" cols="12" :md="imagePreviewVisibility ? 9 : 12">
                 <vuescroll :ops="ops">
                     <div id="output">
                         <terminal-command command="page ."/>
@@ -18,16 +18,18 @@
                 </vuescroll>
             </b-col>
             <b-col>
-                <terminal-image-preview :image="image" :alt="imageAlt" v-show="imagePreviewVisability"/>
+                <terminal-image-preview :image="image" :alt="imageAlt" v-show="imagePreviewVisibility"/>
             </b-col>
         </b-row>
+        <terminal-image-modal ref="image-modal" :image="image" :alt="imageAlt"/>
     </b-container>
 </template>
 
 <script>
-import TerminalCommand from './TerminalCommand.vue'
-import TerminalObjectExport from './TerminalObjectExport.vue'
-import TerminalImagePreview from './TerminalImagePreview.vue'
+import TerminalCommand from './TerminalCommand.vue';
+import TerminalObjectExport from './TerminalObjectExport.vue';
+import TerminalImagePreview from './TerminalImagePreview.vue';
+import TerminalImageModal from './TerminalImageModal.vue';
 import Vuescroll from 'vuescroll/dist/vuescroll-native';
 
 export default {
@@ -35,6 +37,7 @@ export default {
         TerminalCommand,
         TerminalObjectExport,
         TerminalImagePreview,
+        TerminalImageModal,
         Vuescroll
     },
     data: function() {
@@ -68,7 +71,7 @@ export default {
                 'Discord': { type: 'Link', value: 'http://discord.korti.io', comment: 'I know it\'s not https, but it\'s only a redirect link 🤷‍♂️' }
             },
             publicPath: process.env.BASE_URL,
-            imagePreviewVisability: false,
+            imagePreviewVisibility: false,
             image: '',
             imageAlt: '',
             ops: {
@@ -84,10 +87,20 @@ export default {
     },
     methods: {
         profileClick: function() {
-            this.imagePreviewVisability = !this.imagePreviewVisability;
             this.image = `${this.publicPath}images/profile_picture.webp`;
             this.imageAlt = 'Profile picture'
+            this.imagePreviewVisibility = !this.imagePreviewVisibility;
+            if(window.innerWidth < 768) {
+                this.$refs['image-modal'].show();
+            }
         }
+    },
+    mounted: function() {
+        this.$root.$on('bv::modal::hidden', (bvEvent, modalId) => {
+            if(modalId === 'preview-modal') {
+                this.imagePreviewVisibility = false;
+            }
+        })
     }
 }
 </script>
