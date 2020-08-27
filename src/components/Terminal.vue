@@ -48,7 +48,7 @@ export default {
                     student: {
                         at: 'Johannes Kepler University',
                         since: 'October 2017',
-                        what: 'Bachelor of Computer Since'
+                        what: 'Bachelor of Computer Science'
                     },
                     developer: {
                         at: 'Dynatrace',
