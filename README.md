@@ -1,24 +1,8 @@
-# website
+# Website
 
-## Project setup
-```
-npm install
-```
+## URL
+[https://korti.io](https://korti.io)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Description
+This is the repository for my website. It's a small site to show you who I'm and what I'm working on.
+The site was built with Vue.js and Bootstrap. Take a look at the code if you find something interesting.
