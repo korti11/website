@@ -7,20 +7,6 @@ pipeline {
             }
         }
 
-        stage('Build Vue project') {
-            agent {
-                docker { 
-                    image 'node:lts'
-                    args '-w="/home/node/app" -v "$PWD":/home/node/app'
-                }
-            }
-            steps {
-                sh 'pwd'
-                sh 'npm ci'
-                sh 'npm run build'
-            }
-        }
-
         stage('Build Docker image') {
             steps {
                 script {
@@ -32,11 +18,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
-    post {
-        always {
-            archiveArtifacts artifacts: 'dist/*', fingerprint: true
         }
     }
 }
