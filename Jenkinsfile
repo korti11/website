@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build Vue project') {
             steps {
-                sh 'npm ci --production'
+                sh 'npm ci'
                 sh 'npm run build'
             }
         }
