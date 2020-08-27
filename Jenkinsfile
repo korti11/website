@@ -9,8 +9,10 @@ pipeline {
 
         stage('Build Vue project') {
             agent {
-                docker { image 'node:lts' }
-                args '-v ./dist:./dist'
+                docker { 
+                    image 'node:lts'
+                    args '-v ./dist:./dist'
+                }
             }
             steps {
                 sh 'npm ci'
