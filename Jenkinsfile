@@ -10,12 +10,20 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 script {
-                    def app = docker.build('korti11/website:dev')
-                    if(env.BRANCH_NAME == "production") {
-                        def packageJson = readJSON file: 'package.json'
-                        app.push("${packageJson.version}")
-                        app.push("latest")
-                    }
+                    docker.build('korti11/website:dev')
+                }
+            }
+        }
+
+        stage('Tag Docker image') {
+            when {
+                branch 'production'
+            }
+            steps {
+                script {
+                    def packageJson = readJSON file: 'package.json'
+                    sh "docker tag korti11/website:dev korti11/website:${packageJson.version}"
+                    sh "docker tag korti11/website:dev korti11/website:latest"
                 }
             }
         }
