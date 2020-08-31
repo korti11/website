@@ -46,7 +46,7 @@ export default {
                 name: 'Lucas',
                 nickname: 'Korti',
                 age: '23',
-                'profile-picture': { type: 'Click', value: 'images/profile_picture.webp', handler: this.profileClick, comment: '👈 Click the file to show the picture' },
+                'profile-picture': { type: 'Click', value: 'images/profile_picture.jpg', handler: this.profileClick, comment: '👈 Click the file to show the picture' },
                 occupations: {
                     student: {
                         at: 'Johannes Kepler University',
@@ -87,7 +87,7 @@ export default {
     },
     methods: {
         profileClick: function() {
-            this.image = `${this.publicPath}images/profile_picture.webp`;
+            this.image = `${this.publicPath}images/profile_picture.jpg`;
             this.imageAlt = 'Profile picture'
             this.imagePreviewVisibility = !this.imagePreviewVisibility;
             if(window.innerWidth < 768) {
