@@ -1,5 +1,5 @@
 <template>
-    <b-row>
+    <b-row v-if="show">
         <b-col cols="12" lg="6">
             <span v-on:click="showObj = !showObj" class="export">export</span> = {
         </b-col>
@@ -24,8 +24,14 @@ export default {
         TerminalObject
     },
     data: function() {
+        let show = true;
+        const propertyCount = Object.entries(this.obj).length;
+        if(propertyCount === 1 && 'command' in this.obj) {
+            show = false;
+        }
         return {
-            showObj: this.obj.showInitial != undefined ? this.obj.showInitial.value : true
+            showObj: this.obj.showInitial != undefined ? this.obj.showInitial.value : true,
+            show
         }
     }
 }

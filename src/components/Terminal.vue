@@ -4,14 +4,14 @@
             <b-col class="terminal-output" cols="12" :md="imagePreviewVisibility ? 9 : 12">
                 <vuescroll :ops="ops">
                     <div id="output">
-                        <terminal-command command="page ."/>
+                        <terminal-command command="page" parameter="."/>
                         <b-row>
                             <b-col>
                                 <h1>{{page}}</h1>
                             </b-col>
                         </b-row>
                         <div v-for="(value, name) in input" :key="name">
-                            <terminal-command :command="`cat ${name}.js`"/>
+                            <terminal-command :command="value.command.value" :parameter="`${name}.js`" :route="value.command.route"/>
                             <terminal-object-export :obj="value"/>
                         </div>
                     </div>
