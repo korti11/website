@@ -54,6 +54,7 @@ export default {
         const jsObj = { };
         for(let name in this.obj) {
             const value = this.obj[name];
+            if(value.ignore) continue;
             const type = this.getType(value);
             if(type === 'Custom') {
                 jsObj[name] = value;
