@@ -7,13 +7,13 @@
                         <terminal-command command="page ."/>
                         <b-row>
                             <b-col>
-                                <h1>Home</h1>
+                                <h1>{{page}}</h1>
                             </b-col>
                         </b-row>
-                        <terminal-command command="cat user.js"/>
-                        <terminal-object-export :obj="user"/>
-                        <terminal-command command="cat social.js"/>
-                        <terminal-object-export :obj="social"/>
+                        <div v-for="(value, name) in input" :key="name">
+                            <terminal-command :command="`cat ${name}.js`"/>
+                            <terminal-object-export :obj="value"/>
+                        </div>
                     </div>
                 </vuescroll>
             </b-col>
@@ -40,36 +40,10 @@ export default {
         TerminalImageModal,
         Vuescroll
     },
+    props: ['page', 'input'],
     data: function() {
+        this.addImageHandler(this.input);
         return {
-            user: {
-                name: 'Lucas',
-                nickname: 'Korti',
-                age: '23',
-                'profile-picture': { type: 'Click', value: 'images/profile_picture.jpg', handler: this.profileClick, comment: '👈 Click the file to show the picture' },
-                occupations: {
-                    student: {
-                        at: 'Johannes Kepler University',
-                        since: 'October 2017',
-                        what: 'Bachelor of Computer Science'
-                    },
-                    developer: {
-                        at: 'Dynatrace',
-                        since: 'October 2020'
-                    }
-                },
-                pronouns: '\'he\' | \'him\'',
-                country: 'Austria 🇦🇹',
-                code: [ 'Java', 'Kotlin', 'JavaScript', 'SQL' ],
-                tools: { type: 'Array', value: [ 'Node', 'Angular', 'Vue', 'Docker' ], comment: 'I\'m still learning Vue, this here is my first project with it 👨‍💻' },
-                languages: [ 'German', 'English' ]
-            },
-            social: {
-                'GitHub': 'https://github.com/korti11',
-                'Twitch': 'https://www.twitch.tv/korti11',
-                'Twitter': 'https://twitter.com/LKorti11',
-                'Discord': { type: 'Link', value: 'http://discord.korti.io', comment: 'I know it\'s not https, but it\'s only a redirect link 🤷‍♂️' }
-            },
             publicPath: process.env.BASE_URL,
             imagePreviewVisibility: false,
             image: '',
@@ -86,12 +60,24 @@ export default {
         }
     },
     methods: {
-        profileClick: function() {
-            this.image = `${this.publicPath}images/profile_picture.jpg`;
-            this.imageAlt = 'Profile picture'
+        imageClick: function(imageObj) {
+            this.image = `${this.publicPath}${imageObj.image}`;
+            this.imageAlt = imageObj.image;
             this.imagePreviewVisibility = !this.imagePreviewVisibility;
             if(window.innerWidth < 768) {
                 this.$refs['image-modal'].show();
+            }
+        },
+        addImageHandler: function(obj) {
+            for(let prop in obj) {
+                const value = obj[prop];
+                if(typeof value === 'object') {
+                    if('image' in value) {
+                        value.handler = this.imageClick
+                    } else {
+                        this.addImageHandler(value);
+                    }
+                }
             }
         }
     },
