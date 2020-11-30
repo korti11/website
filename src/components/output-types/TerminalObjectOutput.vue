@@ -8,7 +8,7 @@
                     <terminal-object v-else-if="value.type === 'Object'" :property="name" :obj="value.value"/>
                     <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value" :message="value.message ? value.message : value.value" :external="value.external !== undefined ? value.external : true"/>
                     <terminal-multi-text v-else-if="value.type === 'MultiText'" :property="name" :value="value.value"/>
-                    <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :value="value.value"/>
+                    <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :parameter="value.parameter" :value="value.value"/>
                     <terminal-text v-else :property="name" :value="value.value"/>
                     <span v-if="value.type === 'Object'">}</span>
                     <span v-if="index !== (keyLength - 1)">,</span>
@@ -23,7 +23,7 @@
                     <terminal-object v-else-if="value.type === 'Object'" :property="name" :obj="value.value"/>
                     <terminal-link v-else-if="value.type === 'Link'" :property="name" :link="value.value" :message="value.message ? value.message : value.value" :external="value.external !== undefined ? value.external : true" :commment="value.comment"/>
                     <terminal-multi-text v-else-if="value.type === 'MultiText'" :property="name" :value="value.value"/>
-                    <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :value="value.value"/>
+                    <terminal-click v-else-if="value.type === 'Click'" :property="name" :onClick="value.handler" :parameter="value.parameter" :value="value.value"/>
                     <terminal-text v-else :property="name" :value="value.value"/>
                     <span v-if="value.type === 'Object'">}</span>
                     <span v-if="index !== (keyLength - 1)">,</span>
@@ -54,6 +54,7 @@ export default {
         const jsObj = { };
         for(let name in this.obj) {
             const value = this.obj[name];
+            if(value.ignore) continue;
             const type = this.getType(value);
             if(type === 'Custom') {
                 jsObj[name] = value;
@@ -66,7 +67,7 @@ export default {
         }
         return {
             jsObj,
-            keyLength: Object.keys(this.obj).length
+            keyLength: Object.keys(jsObj).length
         }
     },
     methods: {
