@@ -23,6 +23,15 @@ export default {
                     languages: [ 'German', 'English' ],
                     command: { value: 'cat', route: 'about', ignore: true }
                 },
+                projects: {
+                    'advent-of-code-2019': 'https://github.com/korti11/advent-of-code-2019',
+                    'bettermuffling': 'https://github.com/korti11/bettermuffling',
+                    'commit-issue-labeler': 'https://github.com/korti11/commit-issue-labeler',
+                    'git-crypt-unlock': 'https://github.com/korti11/git-crypt-unlock',
+                    'invi-me': 'https://github.com/korti11/invi-me-bot',
+                    'muffle': 'https://github.com/korti11/muffle',
+                    command: { value: 'cat', route: 'projects', ignore: true }
+                },
                 social: {
                     'GitHub': 'https://github.com/korti11',
                     'Twitch': 'https://www.twitch.tv/korti11',
