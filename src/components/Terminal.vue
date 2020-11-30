@@ -43,16 +43,7 @@ export default {
             publicPath: process.env.BASE_URL,
             imagePreviewVisibility: false,
             image: '',
-            imageAlt: '',
-            ops: {
-                scrollPanel: {
-                    scrollingX: false
-                },
-                bar: {
-                    onlyShowBarOnScroll: false,
-                    background: '#5e5e5e'
-                }
-            }
+            imageAlt: ''
         }
     },
     methods: {

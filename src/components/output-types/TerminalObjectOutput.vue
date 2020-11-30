@@ -67,7 +67,7 @@ export default {
         }
         return {
             jsObj,
-            keyLength: Object.keys(this.obj).length
+            keyLength: Object.keys(jsObj).length
         }
     },
     methods: {
