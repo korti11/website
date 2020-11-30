@@ -20,11 +20,21 @@ export default {
                     'profile-picture': { type: 'Click', value: 'images/profile_picture.jpg', image: true, parameter: { image: 'images/profile_picture.jpg', imageAlt: 'Profile picture' }, comment: '👈 Click the file to show the picture' },
                     occupations: {
                         student: {
-                            at: 'Johannes Kepler University',
-                            since: 'October 2017',
-                            what: 'Bachelor of Computer Science'
+                            type: 'Array',
+                            value: [
+                                {
+                                    at: 'Johannes Kepler University',
+                                    since: 'October 2017',
+                                    what: 'Bachelor for Computer Science'
+                                },
+                                {
+                                    at: 'Johannes Kepler University',
+                                    since: 'October 2020',
+                                    what: 'Master for Artificial Intelligence'
+                                }
+                            ]
                         },
-                        developer: {
+                        'software-engineer': {
                             at: 'Dynatrace',
                             since: 'October 2020'
                         }
