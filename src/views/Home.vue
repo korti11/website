@@ -29,7 +29,7 @@ export default {
                     'Twitter': 'https://twitter.com/LKorti11',
                     'Discord': { type: 'Link', value: 'http://discord.korti.io', comment: 'I know it\'s not https, but it\'s only a redirect link 🤷‍♂️' },
                     showInitial: { value: false, ignore: true},
-                    command: { value: 'cat', ignore: true}
+                    command: { value: 'cat', route: 'social', ignore: true }
                 }
             }
         }

@@ -15,6 +15,11 @@ const routes = [
         component: () => import('../views/About.vue')
     },
     {
+        path: '/social',
+        name: 'Social',
+        component: () => import('../views/Social.vue')
+    },
+    {
         path: '*',
         component: () => import('../views/NotFound.vue')
     }
