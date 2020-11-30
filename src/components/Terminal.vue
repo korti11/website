@@ -2,20 +2,18 @@
     <b-container fluid>
         <b-row class="h-100">
             <b-col class="terminal-output" cols="12" :md="imagePreviewVisibility ? 9 : 12">
-                <vuescroll :ops="ops">
-                    <div id="output">
-                        <terminal-command command="page" parameter="."/>
-                        <b-row>
-                            <b-col>
-                                <h1>{{page}}</h1>
-                            </b-col>
-                        </b-row>
-                        <div v-for="(value, name) in input" :key="name">
-                            <terminal-command :command="value.command.value" :parameter="`${name}.js`" :route="value.command.route"/>
-                            <terminal-object-export :obj="value"/>
-                        </div>
+                <div id="output">
+                    <terminal-command command="page" parameter="."/>
+                    <b-row>
+                        <b-col>
+                            <h1>{{page}}</h1>
+                        </b-col>
+                    </b-row>
+                    <div v-for="(value, name) in input" :key="name">
+                        <terminal-command :command="value.command.value" :parameter="`${name}.js`" :route="value.command.route"/>
+                        <terminal-object-export :obj="value"/>
                     </div>
-                </vuescroll>
+                </div>
             </b-col>
             <b-col>
                 <terminal-image-preview :image="image" :alt="imageAlt" v-show="imagePreviewVisibility"/>
@@ -30,15 +28,13 @@ import TerminalCommand from './TerminalCommand.vue';
 import TerminalObjectExport from './TerminalObjectExport.vue';
 import TerminalImagePreview from './TerminalImagePreview.vue';
 import TerminalImageModal from './TerminalImageModal.vue';
-import Vuescroll from 'vuescroll/dist/vuescroll-native';
 
 export default {
     components: {
         TerminalCommand,
         TerminalObjectExport,
         TerminalImagePreview,
-        TerminalImageModal,
-        Vuescroll
+        TerminalImageModal
     },
     props: ['page', 'input'],
     data: function() {
