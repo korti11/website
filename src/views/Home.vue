@@ -25,6 +25,7 @@ export default {
                 },
                 projects: {
                     'advent-of-code-2019': 'https://github.com/korti11/advent-of-code-2019',
+                    'advent-of-code-2020': 'https://github.com/korti11/advent-of-code-2020',
                     'bettermuffling': 'https://github.com/korti11/bettermuffling',
                     'commit-issue-labeler': 'https://github.com/korti11/commit-issue-labeler',
                     'git-crypt-unlock': 'https://github.com/korti11/git-crypt-unlock',

@@ -22,6 +22,11 @@ export default {
                         adventofcode: "https://adventofcode.com/2019",
                         descripton: 'My solutions for "Advent of Code 2019". At least for the days 1 through 9, 11 and 12 😂'
                     },
+                    'advent-of-code-2020': {
+                        url: 'https://github.com/korti11/advent-of-code-2020',
+                        adventofcode: "https://adventofcode.com/2020",
+                        descripton: 'A new year, a new set of advent of code challanges. "Advent of Code 202" solutions, this year in JavaScript 👀'
+                    },
                     'bettermuffling': {
                         url: 'https://github.com/korti11/bettermuffling',
                         descripton: 'Better Muffling is a Minecraft mod a started working on the end of 2017. It adds two blocks to muffle sounds for a given range and sound level. It currently is supported for Minecraft 1.12, 1.14, 1.15 and 1.16.'
