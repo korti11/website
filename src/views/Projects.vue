@@ -25,7 +25,7 @@ export default {
                     'advent-of-code-2020': {
                         url: 'https://github.com/korti11/advent-of-code-2020',
                         adventofcode: "https://adventofcode.com/2020",
-                        descripton: 'A new year, a new set of advent of code challanges. "Advent of Code 202" solutions, this year in JavaScript 👀'
+                        descripton: 'A new year, a new set of advent of code challanges. "Advent of Code 2020" solutions, this year in JavaScript 👀'
                     },
                     'bettermuffling': {
                         url: 'https://github.com/korti11/bettermuffling',
