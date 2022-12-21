@@ -25,7 +25,17 @@ export default {
                     'advent-of-code-2020': {
                         url: 'https://github.com/korti11/advent-of-code-2020',
                         adventofcode: "https://adventofcode.com/2020",
-                        descripton: 'A new year, a new set of advent of code challanges. "Advent of Code 2020" solutions, this year in JavaScript 👀'
+                        descripton: 'A new year, a new set of advent of code challenges. "Advent of Code 2020" solutions, this year in JavaScript 👀'
+                    },
+                    'advent-of-code-2021': {
+                        url: 'https://github.com/korti11/advent-of-code-2021',
+                        adventofcode: "https://adventofcode.com/2021",
+                        descripton: 'The third try at solving all advent of code challenges. New year, new langue so let\'s give us Go a try 💻'
+                    },
+                    'advent-of-code-2022': {
+                        url: 'https://github.com/korti11/advent-of-code-2022',
+                        adventofcode: "https://adventofcode.com/2022",
+                        descripton: 'The forth year and it\'s not looking good so far at solving the challenges. I heard about this new language Rust so why don\'t try it out for AoC 🦀'
                     },
                     'bettermuffling': {
                         url: 'https://github.com/korti11/bettermuffling',
