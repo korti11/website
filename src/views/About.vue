@@ -19,7 +19,7 @@ export default {
                 about: {
                     name: 'Lucas',
                     nickname: 'Korti',
-                    age: '23',
+                    age: '25',
                     'profile-picture': { type: 'Click', value: 'images/profile_picture.jpg', image: true, parameter: { image: 'images/profile_picture.jpg', imageAlt: 'Profile picture' }, comment: '👈 Click the file to show the picture' },
                     occupations: {
                         student: {
@@ -27,17 +27,14 @@ export default {
                             value: [
                                 {
                                     at: 'Johannes Kepler University',
-                                    since: 'October 2017',
-                                    what: 'Bachelor for Computer Science'
-                                },
-                                {
-                                    at: 'Johannes Kepler University',
-                                    since: 'October 2020',
-                                    what: 'Master for Artificial Intelligence'
+                                    from: 'October 2017',
+                                    to: 'July 2021',
+                                    what: 'Computer Science',
+                                    degree: 'BSc'
                                 }
                             ]
                         },
-                        'software-engineer': {
+                        'java-software-engineer': {
                             at: 'Dynatrace',
                             since: 'October 2020'
                         }
@@ -45,7 +42,7 @@ export default {
                     pronouns: '\'he\' | \'him\'',
                     country: 'Austria 🇦🇹',
                     code: [ 'Java', 'Kotlin', 'JavaScript', 'SQL' ],
-                    tools: { type: 'Array', value: [ 'Node', 'Angular', 'Vue', 'Docker' ], comment: 'I\'m still learning Vue, this here is my first project with it 👨‍💻' },
+                    tools: { type: 'Array', value: [ 'Docker', 'git', 'IntelliJ', 'VS Code' ] },
                     languages: [ 'German', 'English' ],
                     command: { value: 'cat', ignore: true }
                 }
